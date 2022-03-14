@@ -24,20 +24,20 @@ void loop() {
   for (pos = 50; pos <= 138; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
     myservo.write(pos);
-    Servo2.write(180-pos); // tell servo to go to position in variable 'pos'
+    Servo2.write(175-pos); // tell servo to go to position in variable 'pos'
     delay(5);                       // waits 15ms for the servo to reach the position
   }
     myservo.write(138);
-    Servo2.write(180-138);// tell servo to go to position in variable 'pos'
+    Servo2.write(175-138);// tell servo to go to position in variable 'pos'
     delay(1000); 
   
   for (pos = 138; pos >= 50; pos -= 1) { // goes from 180 degrees to 0 degrees
     myservo.write(pos);
-    Servo2.write(180-pos);              // tell servo to go to position in variable 'pos'
+    Servo2.write(175-pos);              // tell servo to go to position in variable 'pos'
     delay(5);                       // waits 15ms for the servo to reach the position
   }
   myservo.write(50);
-  Servo2.write(180-50);
+  Servo2.write(175-50);
   // tell servo to go to position in variable 'pos'
     delay(5000); 
 }
