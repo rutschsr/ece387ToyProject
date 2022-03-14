@@ -21,9 +21,9 @@ def run_command(command):
 print ("Number of arguments: %d" %  len(sys.argv))
 print ("Argument List: %s" % str(sys.argv))
 
-files_to_compile = ['stop_light_nice']
+files_to_compile = ['stop_light_fixed']
 directories = ['']
-file_to_compile = 'stop_light_nice'
+file_to_compile = 'stop_light_fixed'
 #Com port on my linux virtual machine
 if len(sys.argv) == 2:
     com_port = '/dev/ttyACM0'
@@ -61,14 +61,14 @@ if level_of_compilation >= 1:
     cmd = 'rm *.hex'
     run_command(cmd)
     for fs in files_to_compile:
-        cmd = path_win_avr + 'avr-gcc -Wall -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o '+fs+'.o '+fs+'.c'
+        cmd = path_win_avr + 'avr-gcc -Wall -Os -DF_CPU=16000000UL -mmcu=atmega32u4 -c -o '+fs+'.o '+fs+'.c'
         run_command(cmd)
     
 
 
     
 if level_of_compilation >= 2:
-    cmd = path_win_avr + 'avr-gcc -mmcu=atmega328p '
+    cmd = path_win_avr + 'avr-gcc -mmcu=atmega32u4 '
     for fs in files_to_compile:
         cmd = cmd+fs+'.o ' 
     cmd = cmd +'-o '+file_to_compile
@@ -79,5 +79,5 @@ if level_of_compilation >= 3:
     run_command(cmd)
 
 if level_of_compilation >= 4:
-    cmd = path_win_avr + 'avrdude -patmega328p -P'+com_port+' -carduino -D -U flash:w:'+file_to_compile+'.hex:i'
+    cmd = path_win_avr + 'avrdude -p m32u4 -P'+com_port+' -carduino -D -U flash:w:'+file_to_compile+'.hex:i'
     run_command(cmd)
