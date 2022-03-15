@@ -3,14 +3,14 @@
 Servo servo1;
 Servo servo2;
 
-const int button1=6;
-const int button2=7;
+const int button1 = 6;
+const int button2 = 7;
 
-int button1state=1;
-int button2state=1;
+int button1state = 1;
+int button2state = 1;
 
-int servo1pos=50;
-int servo2pos=125;
+int servo1pos = 50;
+int servo2pos = 125;
 
 
 void setup() {
@@ -30,33 +30,33 @@ void loop() {
   button1state = digitalRead(button1);
   button2state = digitalRead(button2);
 
-  if(button1state ==LOW){
-    if(servo1pos<150){
-      
-    
-    servo1pos++;
+  if (button1state == LOW) {
+    if (servo1pos < 150) {
+
+
+      servo1pos++;
+    }
   }
-  }
-  else{
-    if(servo1pos>=50){
+  else {
+    if (servo1pos >= 50) {
       servo1pos--;
     }
   }
-  
-   
-   if(button2state==LOW){
-    if(servo2pos>40){
-    //Add limit here
-    servo2pos--;
+
+
+  if (button2state == LOW) {
+    if (servo2pos > 40) {
+      //Add limit here
+      servo2pos--;
+    }
   }
-   }
-  else{
-    if(servo2pos<=125){
+  else {
+    if (servo2pos <= 125) {
       servo2pos++;
     }
   }
   servo1.write(servo1pos);
-    servo2.write(servo2pos);
+  servo2.write(servo2pos);
 
 
 
@@ -65,5 +65,5 @@ void loop() {
 
 
 
-delay(4);
+  delay(4);
 }
