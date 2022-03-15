@@ -31,8 +31,11 @@ void loop() {
   button2state = digitalRead(button2);
 
   if(button1state ==LOW){
-    //Add limit here
+    if(servo1pos<150){
+      
+    
     servo1pos++;
+  }
   }
   else{
     if(servo1pos>=50){
@@ -42,9 +45,11 @@ void loop() {
   
    
    if(button2state==LOW){
+    if(servo2pos>40){
     //Add limit here
     servo2pos--;
   }
+   }
   else{
     if(servo2pos<=125){
       servo2pos++;
