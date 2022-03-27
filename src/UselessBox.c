@@ -47,7 +47,7 @@ void pwm_hw_setup()
 
    ICR1=4999;  //fPWM=50Hz (Period = 20ms Standard).
 
-   DDRD|=(1<<PD5)|(1<<PD6);   //PWM Pins as Out
+   DDRB|=(1<<PB5)|(1<<PB6);   //PWM Pins as Out
 }
 
 
@@ -58,7 +58,7 @@ void pwm(int servo1, int servo2)
 
 	
       OCR1A=316;  //90 degree
-    
+    OCR1B=316;  //90 degree
 
 
 
