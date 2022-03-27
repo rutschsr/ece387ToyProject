@@ -21,9 +21,9 @@ def run_command(command):
 print ("Number of arguments: %d" %  len(sys.argv))
 print ("Argument List: %s" % str(sys.argv))
 
-files_to_compile = ['stop_light_nice']
+files_to_compile = ['UselessBox']
 directories = ['']
-file_to_compile = 'stop_light_nice'
+file_to_compile = 'UselessBox'
 #Com port on my linux virtual machine
 if len(sys.argv) == 2:
     com_port = '/dev/ttyACM0'

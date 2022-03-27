@@ -21,9 +21,9 @@ def run_command(command):
 print ("Number of arguments: %d" %  len(sys.argv))
 print ("Argument List: %s" % str(sys.argv))
 
-files_to_compile = ['stop_light_fixed']
+files_to_compile = ['UselessBox']
 directories = ['']
-file_to_compile = 'stop_light_fixed'
+file_to_compile = 'UselessBox'
 #Com port on my linux virtual machine
 if len(sys.argv) == 2:
     com_port = '/dev/ttyACM0'
@@ -79,5 +79,8 @@ if level_of_compilation >= 3:
     run_command(cmd)
 
 if level_of_compilation >= 4:
-    cmd = path_win_avr + 'avrdude -p m32u4 -P'+com_port+' -carduino -D -U flash:w:'+file_to_compile+'.hex:i'
-    run_command(cmd)
+    #reset first
+    #  cmd=path_win_avr +'avrdude -patmega32u4 -carduino -P'+com_port+ ' -b1200 -v'
+    #  run_command(cmd)
+     cmd = path_win_avr + 'avrdude -pm32u4 -P'+com_port+' -cavr109 -b57600 -D -U flash:w:'+file_to_compile+'.hex:i -v'
+     run_command(cmd)
