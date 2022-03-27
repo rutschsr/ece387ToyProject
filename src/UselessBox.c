@@ -15,6 +15,8 @@ void pwm(int servo1, int servo2);
 
 int button1state = 1;
 int button2state = 1;
+int servo1pos = 50;
+int servo2pos = 125;
 
 int main()
 {
@@ -27,15 +29,34 @@ int main()
         button1state = (PIND & (1 << button1));
         button2state = (PINE & (1 << button2));
 
-        if (button2state)
+       if(button1state==0){
+           if(servo1pos<150){
+               servo1pos++;
+           }
+       }
+       else{
+           if(servo1pos>=50){
+               servo1pos--;
+           }
+       }
+       
+       
+       
+        if (button2state==0)
         {
             PORTC |= _BV(PORTC7);
+            if(servo2pos>40){
+                servo2pos--;
+            }
         }
         else
         {
+            if(servo2pos<=125){
+                servo2pos++;
+            }
             PORTC &= ~_BV(PORTC7);
         }
-        pwm(90 ,90);
+        pwm(servo1 ,servo2);
         _delay_ms(15);
     }
 }
