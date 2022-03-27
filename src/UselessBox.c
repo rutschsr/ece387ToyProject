@@ -53,12 +53,12 @@ void pwm_hw_setup()
 
 void pwm(int servo1, int servo2)
 {
-	int step16 = 65535; // 1/8 of 16bit number
-	int step8 = 255; // 1/8 of 8bit number
+	servo1=servo1*2+100;
+    servo2=servo2*2+100;
 
 	
-      OCR1A=316;  //90 degree
-    OCR1B=316;  //90 degree
+      OCR1A=servo1;  //90 degree
+    OCR1B=servo2;  //90 degree
 
 
 
