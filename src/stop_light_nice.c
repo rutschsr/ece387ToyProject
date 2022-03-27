@@ -1,6 +1,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+//PWM on Atmega32u using help from:
+//https://extremeelectronics.co.in/avr-tutorials/servo-motor-control-by-using-avr-atmega32-microcontroller/
+
 
 #define __DELAY_BACKWARD_COMPATIBLE__
 
