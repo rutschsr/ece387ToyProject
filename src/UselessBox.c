@@ -1,6 +1,9 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+//PWM on Atmega32u using help from:
+//https://extremeelectronics.co.in/avr-tutorials/servo-motor-control-by-using-avr-atmega32-microcontroller/
+
 // Switch 1 on 6 (PD7)
 // Switch 2 on 7 (PE6)
 #define button1 PD7
