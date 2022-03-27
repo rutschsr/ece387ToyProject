@@ -42,65 +42,12 @@ int main()
 
 void pwm_hw_setup()
 {
-	// TIMER 0 - 8 bit
-	// EXAMPLE set PWM 50%
-	// OCR0A = 128;
-	// OCR0B = 128;
-	
-	OCR0A = 0;
-	OCR0B = 0;
+	TCCR1A|=(1<<COM1A1)|(1<<COM1B1)|(1<<WGM11);        //NON Inverted PWM
+   TCCR1B|=(1<<WGM13)|(1<<WGM12)|(1<<CS11)|(1<<CS10); //PRESCALER=64 MODE 14(FAST PWM)
 
-    	// set none-inverting mode
-	TCCR0A |= (1 << COM0A1);
-    	// set fast PWM Mode
-	TCCR0A |= (1 << WGM01) | (1 << WGM00);
-    	// set prescaler to 8 and starts PWM
-	TCCR0B |= (1 << CS01);
-	
-	// TIMER 1 - 16 bit
-	// OC1A and OC1B synced
-	// EXAMPLE set PWM for 25% duty cycle @ 16bit
-	// OCR1A = 0x3FFF;
-	// set PWM for 75% duty cycle @ 16bit
-	// OCR1B = 0xBFFF;
-	
-    	// set TOP to 16bit
-	ICR1 = 0xFFFF;
+   ICR1=4999;  //fPWM=50Hz (Period = 20ms Standard).
 
-	OCR0A = 0x0000;
-	OCR0B = 0x0000;
-
-	// set none-inverting mode
-	TCCR1A |= (1 << COM1A1)|(1 << COM1B1);
-	// set Fast PWM mode using ICR1 as TOP - MODE 14
-	TCCR1A |= (1 << WGM11);
-	TCCR1B |= (1 << WGM12)|(1 << WGM13);
-    
-	// START the timer with no prescaler
-	TCCR1B |= (1 << CS10);
-
-	// TIMER 2 - 8 bit
-	// OC2A and OC2B synced
-	// EXAMPLE - 50% DUTY
-	// OCR2A = 128;
-
-	// set PWM for 0% duty cycle
-	OCR1A = 0;
-	OCR1B = 0;
-
-	// set none-inverting mode
-	TCNT0 |= (1 << COM0A1);
-	TCNT0 |= (1 << COM0B1);
-
-	// set fast PWM Mode
-	TCNT0 |= (1 << WGM01) | (1 << WGM00);
-	// START WITH NO PRESCALER
-	TCCR0B |= (1 << CS00);
-
-	// SELECT PINS we're going out on for our schematic
-	DDRB|=(1<<PB5);  /* set OC2B = Arduino_Pin3 pin as output - TIMER 2 */
-	DDRB|=(1<<PB6);  /* set OC1B = Arduino_Pin10 pin as output - TIMER 1 */
-	//DDRB|=(1<<PB2);  /* set OC2A = Arduino_Pin11 pin as output - TIMER 2 */
+   DDRD|=(1<<PD5)|(1<<PD6);   //PWM Pins as Out
 }
 
 
@@ -110,6 +57,8 @@ void pwm(int servo1, int servo2)
 	int step8 = 255; // 1/8 of 8bit number
 
 	
+      OCR1A=316;  //90 degree
+    
 
 
 
@@ -117,9 +66,9 @@ void pwm(int servo1, int servo2)
 	
 		/* IF - button1 is pressed - increase the PWM duty cycle by 12.5% or 1/8 */
 		// PIN 10 - yellow
-		OCR1A=(float)servo1/(float)180*step16;
+		//OCR1A=(float)servo1/(float)180*step16;
 		// PIN 11 - green
-		OCR1B =(float)servo2/(float)180*step16;
+		//OCR1B =(float)servo2/(float)180*step16;
 		// PIN 3 - red
 		//OCR2B += step8;
 	
