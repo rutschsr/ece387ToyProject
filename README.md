@@ -10,10 +10,27 @@ The operation of the Useless Box toy is very simple ... there are two switches, 
 
 [![Img alt text](https://img.youtube.com/vi/gphNHizoBe4/0.jpg)](https://www.youtube.com/watch?v=gphNHizoBe4)
 
+## Operational Overview
+
+The Useless box is a simple toy, and simply turns the switch off when it is turned on by a user. 
+
 
 ## 3D Printed Parts
 
-I designed all of the mechanical parts for the Useless Box in Autodesk Fusion 360. All of the design files are located in this [Folder](https://github.com/rutschsr/ece387ToyProject/tree/main/3-D%20Parts).
+I designed all of the mechanical parts for the Useless Box in Autodesk Fusion 360. All of the design files are located in this [Folder](https://github.com/rutschsr/ece387ToyProject/tree/main/3-D%20Parts). Each part was "sliced" (split into layers and 3D printer gcode) using [Utlimaker Cura](https://ultimaker.com/software/ultimaker-cura). I then printed each of the pieces on my Creality Ender 3 V2 3D printer using PLA (polyactic acid) filament. Each piece is also not solid and includes between 40 and 60% fill in a triangular manner.
+
+
+### Box Bottom
+
+### Box Top
+
+
+### Box Door
+
+### Servo Mount
+
+### Servo Arm
+(progression)
 
 ## Wiring and Connections
 ![alt text](https://srutschilling.net/ECE387/ToyProject/Images/FinalProjectSchematic.png)
