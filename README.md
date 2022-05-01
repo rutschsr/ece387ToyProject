@@ -17,28 +17,78 @@ The Useless box is a simple toy, and simply turns the switch off when it is turn
 
 ## 3D Printed Parts
 
-I designed all of the mechanical parts for the Useless Box in Autodesk Fusion 360. All of the design files are located in this [Folder](https://github.com/rutschsr/ece387ToyProject/tree/main/3-D%20Parts). Each part was "sliced" (split into layers and 3D printer gcode) using [Utlimaker Cura](https://ultimaker.com/software/ultimaker-cura). I then printed each of the pieces on my Creality Ender 3 V2 3D printer using PLA (polyactic acid) filament. Each piece is also not solid and includes between 40 and 60% fill in a triangular manner.
+I designed all of the mechanical parts for the Useless Box in Autodesk Fusion 360. All of the design files are located in this [Folder](https://github.com/rutschsr/ece387ToyProject/tree/main/3-D%20Parts). Each part was "sliced" (split into layers and 3D printer gcode) using [Utlimaker Cura](https://ultimaker.com/software/ultimaker-cura). I then printed each of the pieces on my Creality Ender 3 V2 3D printer using PLA (polyactic acid) filament. Each piece is is hollow and includes between 40 and 60% fill in a triangular manner to reduce print time and increase
+
+![PLA Filament](https://srutschilling.net/ECE387/ToyProject/Images/Filament.JPEG)
 
 
 ### Box Bottom
 
+![Box in Fusion 360](https://srutschilling.net/ECE387/ToyProject/Images/BoxInOctoprint.JPEG)
+
+Box in Autodesk Fusion 360. I exported the drawing to the Utilimaker Cura to slice it before it was printed.
+
+![Box Starting to print](https://srutschilling.net/ECE387/ToyProject/Images/BoxStarting2.JPEG)
+
+A raspberry pi running Octoprint is connected to my printer which provides a web interface to upload drawings and control the printer from. This printer is connected to the raspberry pi using a micro usb cable.
+
+![Complete Bottom of Box on Printer](https://srutschilling.net/ECE387/ToyProject/Images/BottomCompleteOnPrinter.JPEG)
+
+The bottom of the box used nearly the entire print volume of the printer, took approximatley 22 hours to complete, and used approximatley 200g ($4-5) of material.
+
 ### Box Top
+
+![Finished Top](https://srutschilling.net/ECE387/ToyProject/Images/TopDoneOnPrinter.JPEG)
+
+The top of the Useless box, still on the printer. The larger holes are where the switches are mounted, and the smaller holes are screw holes.
 
 
 ### Box Door
 
+![Useless box door on printer](https://srutschilling.net/ECE387/ToyProject/Images/DoorOnPrinter.jpg)
+
+The box with hinge mounts on the printer. The raised area on the bottom was originally planned to be a rubber band mount to close the door, but this was not necessary as the door closes by itself.
+
 ### Servo Mount
 
+![Original Small Servo Mount](https://srutschilling.net/ECE387/ToyProject/Images/SmallServoMounted.JPEG)
+
+The original small servo mount with a servo motor. This motor did not have enough torque and was replaced with a larger motor. The design of the Servo mount stayed the same design but was slightly larger.
+
 ### Servo Arm
-(progression)
+![Brackets and Arms Printing](https://srutschilling.net/ECE387/ToyProject/Images/BracketsAndArmsPrinting2.JPEG)
+
+The brackets and arms also took some trial and error to get correct. The larger servo motors meant that the arms had to be offset to turn off the switches as the box was not wide enough. This was the only real design change with the arm. I used screws to attach the arm to a mount that came with the servo. This just relies on friction between the gears to stay.
+
+## Assembly
+
+![Servo Motors inside Box](https://srutschilling.net/ECE387/ToyProject/Images/ArmsInside5.JPEG)
+
+Servo Motors mounted inside The Box with switches and offset arms installed. From this view the width of the servo motors and box that required the arms to offset can be seen.
+
+![Assembled Box](https://srutschilling.net/ECE387/ToyProject/Images/AssembledBox2.JPEG)
+
+Assembled box with the door open.
 
 ## Wiring and Connections
-![alt text](https://srutschilling.net/ECE387/ToyProject/Images/FinalProjectSchematic.png)
+![Useless Box Schematic Diagram](https://srutschilling.net/ECE387/ToyProject/Images/FinalProjectSchematic.png)
 Above is the Schematic Diagram showing the connections for the Useless Box.
 
 My Useless Box accepts a 5-7 V input on either the VIN jack on the outside of the box near the power switch, or the internal battery box which holds four AA batteries.
 
-Internally, the servo motors are powered directly from the VIN port with no voltage regulation and this is why the input is limited to 7 volts. The Arduino Micro is then powered through its VIN pin. On the Arduino two digital input pins are used for the switches, and two PWM pins are used to control the servos.   
+Internally, the servo motors are powered directly from the VIN port with no voltage regulation and this is why the input is limited to 7 volts. The Arduino Micro is then powered through its VIN pin. On the Arduino two digital input pins are used for the switches, and two PWM pins are used to control the servos. The wiring is very simple, with the only components being the servo motors, the switches, and bleed resistors for the switches.
+
+![Soldering perf board in progress](https://srutschilling.net/ECE387/ToyProject/Images/SolderingPerfBoard.JPEG)
+
+All of the connections are soldered or socketed to improve the reliability. I used a solder perfboard to attach all of the components and header pins for the Arduino and Servo motors.
+
+![Arduino Micro on PerfBoard](https://srutschilling.net/ECE387/ToyProject/Images/ArduinoMicroInsideBox.jpg)
+
+The Servo headers are on the bottom left of the perfboard, while the black 4 wire cable goes to the switches mounted on the top of the box. After I soldered the components on to the perfboard I used hotglue on all connections to ensure the wires do not break off at their connections.
+
+## Issues
+
+There were several issues and design changes while building the Useless Box. The first was my original choice in servo motor was very small 9g servo motors. After adding a large arm to be able to turn of the switch, these 
 
 
 
