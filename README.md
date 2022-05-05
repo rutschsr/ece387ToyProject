@@ -26,7 +26,7 @@ I designed all of the mechanical parts for the Useless Box in Autodesk Fusion 36
 
 ![Box in Fusion 360](https://srutschilling.net/ECE387/ToyProject/Images/BoxInOctoprint.JPEG)
 
-Box in Autodesk Fusion 360. I exported the drawing to the Utilimaker Cura to slice it before it was printed.
+Box in Autodesk Fusion 360. I exported the drawing to Utilimaker Cura to "slice" it before it was printed.
 
 ![Box Starting to print](https://srutschilling.net/ECE387/ToyProject/Images/BoxStarting2.JPEG)
 
