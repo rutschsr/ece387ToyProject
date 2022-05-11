@@ -8,7 +8,7 @@ The operation of the Useless Box toy is very simple ... there are two switches, 
 
 ## Operational Demonstration
 
-[![Img alt text](https://img.youtube.com/vi/LLpY4BQX6XM/0.jpg)](https://www.youtube.com/watch?v=LLpY4BQX6XM)
+[![Img alt text](https://img.youtube.com/vi/gphNHizoBe4/0.jpg)](https://www.youtube.com/watch?v=gphNHizoBe4)
 
 ## Operational Overview
 
